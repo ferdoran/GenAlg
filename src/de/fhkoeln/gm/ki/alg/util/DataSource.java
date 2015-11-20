@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import de.fhkoeln.gm.ki.alg.GeneticAlgorithm;
 import de.fhkoeln.gm.ki.alg.fitnessFunctions.BotFitness;
-import de.fhkoeln.gm.ki.alg.fitnessFunctions.DummyFitness;
 import de.fhkoeln.gm.ki.alg.fitnessFunctions.FitnessFunction;
 import de.fhkoeln.gm.ki.alg.fitnessFunctions.AbstractFitness;
 import de.fhkoeln.gm.ki.alg.genes.AbstractGene;
@@ -13,10 +12,10 @@ import de.fhkoeln.gm.ki.alg.genes.BotTestGeneA;
 import de.fhkoeln.gm.ki.alg.genes.BotTestGeneB;
 import de.fhkoeln.gm.ki.alg.genes.BotTestGeneC;
 import de.fhkoeln.gm.ki.alg.genes.BotTestGeneD;
-import de.fhkoeln.gm.ki.alg.genes.TestGeneA;
-import de.fhkoeln.gm.ki.alg.genes.TestGeneB;
-import de.fhkoeln.gm.ki.alg.genes.TestGeneC;
-import de.fhkoeln.gm.ki.alg.genes.TestGeneD;
+import de.fhkoeln.gm.ki.alg.genes.TestGene1;
+import de.fhkoeln.gm.ki.alg.genes.TestGene2;
+import de.fhkoeln.gm.ki.alg.genes.TestGene3;
+import de.fhkoeln.gm.ki.alg.genes.TestGene4;
 import de.fhkoeln.gm.ki.alg.mutators.AbstractMutator;
 import de.fhkoeln.gm.ki.alg.mutators.RandomResetter;
 import de.fhkoeln.gm.ki.alg.recombiners.AbstractRecombiner;
@@ -56,7 +55,7 @@ public class DataSource {
 	public AbstractRecombiner currentRecombiner;
 	public GeneticAlgorithm currentGeneticAlgorithm;
 	
-	public static String BOTNAME = "D_LILA";
+	public static String BOTNAME = "A_BLAU_1516";
 	private DataSource(){}
 	
 	public static DataSource getInstance(){
@@ -136,11 +135,10 @@ public class DataSource {
 //		genes.add(new BotTestGeneB());
 //		genes.add(new BotTestGeneC());
 //		genes.add(new BotTestGeneD());
-		genes.add(new TestGeneA());
-		genes.add(new TestGeneB());
-		genes.add(new TestGeneC());
-		genes.add(new TestGeneD());
-		fitnessFunctions.add(new DummyFitness());
+		genes.add(new TestGene1());
+		genes.add(new TestGene2());
+		genes.add(new TestGene3());
+		genes.add(new TestGene4());
 		fitnessFunctions.add(new FitnessFunction());
 		fitnessFunctions.add(new BotFitness());
 		mutators.add(new RandomResetter());
