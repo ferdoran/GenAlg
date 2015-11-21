@@ -15,7 +15,9 @@ public class OnePointCrossover extends AbstractRecombiner{
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String name;
+        name = "OnePointCrossover";
+        return name;
     }
 
     @Override

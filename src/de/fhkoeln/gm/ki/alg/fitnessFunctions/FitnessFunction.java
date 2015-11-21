@@ -5,27 +5,45 @@
  */
 package de.fhkoeln.gm.ki.alg.fitnessFunctions;
 
+import de.fhkoeln.gm.ki.alg.genes.AbstractGene;
 import de.fhkoeln.gm.ki.alg.util.Individual;
+import java.util.ArrayList;
 
 /**
  *
  * @author Mahdi
  */
 public class FitnessFunction extends AbstractFitness{
+    private float highest = -10000000;
 
     @Override
     public float evaluate(Individual genome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float fitness;
+        fitness = -1000000;
+        ArrayList<AbstractGene> genomeList;
+        genomeList = genome.getGenes();
+        for(AbstractGene gene : genomeList){
+            fitness += gene.execute();
+        }
+        if(fitness>highest){
+            highest = fitness;
+        }
+        return fitness;
     }
 
     @Override
     public boolean thresholdReached() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Boolean threshold;
+        threshold = highest>=1200;
+               
+        return threshold;
     }
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String name;
+        name = "Fitness Aufgabe 2.1";
+        return name;
     }
     
 }
