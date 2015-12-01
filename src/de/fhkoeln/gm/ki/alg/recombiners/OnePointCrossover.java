@@ -30,7 +30,7 @@ public class OnePointCrossover extends AbstractRecombiner{
         Random r = new Random();
         ArrayList<Individual> tmpPop = currentPopulation.getPop();
         
-        for(int i = 0; i < 1000; i++){
+        for(int i = 0; i < 500; i++){
             int r1=-1, r2=-1;
             while(r1==r2){
                 r1 = r.nextInt() % tmpPop.size();
