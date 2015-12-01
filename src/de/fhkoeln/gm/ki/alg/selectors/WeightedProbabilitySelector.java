@@ -5,7 +5,9 @@
  */
 package de.fhkoeln.gm.ki.alg.selectors;
 
+import de.fhkoeln.gm.ki.alg.util.Individual;
 import de.fhkoeln.gm.ki.alg.util.Population;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,7 +17,16 @@ public class WeightedProbabilitySelector extends AbstractSelector{
 
     @Override
     public Population selectFromPopulation(Population currentGen) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Population selectedGen = null;
+        float overallFitness = 0;
+        ArrayList<Individual> tmpPop = currentGen.getPop();
+        
+        for(Individual ind: tmpPop){
+            overallFitness += ind.execute();
+        }
+        
+        
+        return selectedGen;
     }
 
     @Override
