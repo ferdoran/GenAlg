@@ -5,7 +5,11 @@
  */
 package de.fhkoeln.gm.ki.alg.recombiners;
 
+import de.fhkoeln.gm.ki.alg.genes.AbstractGene;
+import de.fhkoeln.gm.ki.alg.util.Individual;
 import de.fhkoeln.gm.ki.alg.util.Population;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -22,7 +26,41 @@ public class OnePointCrossover extends AbstractRecombiner{
 
     @Override
     public Population recombine(Population currentPopulation) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Population newPop = null;
+        Random r = new Random();
+        ArrayList<Individual> tmpPop = currentPopulation.getPop();
+        
+        for(int i = 0; i < 1000; i++){
+            int r1=-1, r2=-1;
+            while(r1==r2){
+                r1 = r.nextInt() % tmpPop.size();
+                r2 = r.nextInt() % tmpPop.size();
+            }
+                        
+            int split = r.nextInt() % tmpPop.get(0).getGenes().size();
+            
+            ArrayList<AbstractGene> p1 = tmpPop.get(r1).getGenes();
+            ArrayList<AbstractGene> p2 = tmpPop.get(r2).getGenes();
+            
+            ArrayList<AbstractGene> c1 = null;
+            ArrayList<AbstractGene> c2 = null;
+            
+            for(int j = 0; j < split; j++){
+                c1.add(p1.get(j));
+                c2.add(p2.get(j));
+            }
+            
+            for(int j = split; j < tmpPop.get(0).getGenes().size(); j++){
+                c1.add(p2.get(j));
+                c2.add(p1.get(j));
+            }
+            
+            newPop.add(new Individual(c1));
+            newPop.add(new Individual(c2));
+            
+        }
+        
+        return newPop;
     }
     
 }
