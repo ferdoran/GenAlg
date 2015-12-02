@@ -28,6 +28,7 @@ public class FitnessFunction extends AbstractFitness{
         if(fitness>highest){
             highest = fitness;
         }
+        genome.fitness = fitness;
         return fitness;
     }
 

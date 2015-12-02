@@ -32,8 +32,8 @@ import de.fhkoeln.gm.ki.remoteControl.BotMonitor;
  */
 public class GeneticAlgorithm extends Thread {
 		
-	private int macroStepPause = 200;
-	private int microStepPause = 10;
+	private int macroStepPause = 0; //200
+	private int microStepPause = 0; // 10
 	public boolean microPauses=true;
 	public boolean macroPauses=true;
 	public boolean currentlyPaused=false;
