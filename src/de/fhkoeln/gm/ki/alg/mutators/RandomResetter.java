@@ -29,7 +29,7 @@ public class RandomResetter extends AbstractMutator{
             gene = ind.getGenes();
             
             for(AbstractGene g : gene){
-                int zufall = r.nextInt();
+                int zufall = Math.abs(r.nextInt());
                 if(zufall%100<=10){
                     g = viableGenes[zufall%viableGenes.length];
                 }

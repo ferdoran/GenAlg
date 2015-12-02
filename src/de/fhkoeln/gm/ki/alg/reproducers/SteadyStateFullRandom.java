@@ -18,11 +18,11 @@ public class SteadyStateFullRandom extends AbstractReproducer{
 
     @Override
     public Population reproduce(Population oldGeneration, Population tmpGeneration) {
-        Population newPop = null;
+        Population newPop = new Population();
         Random r = new Random();
         ArrayList<Individual> old = oldGeneration.getPop();
         ArrayList<Individual> tmp = tmpGeneration.getPop();
-        ArrayList<Individual> neu = null;
+        ArrayList<Individual> neu = new ArrayList();
         
         for(int i = 0; i < old.size(); i++){
             if(r.nextInt()%2==0){

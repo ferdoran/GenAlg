@@ -26,18 +26,18 @@ public class OnePointCrossover extends AbstractRecombiner{
 
     @Override
     public Population recombine(Population currentPopulation) {
-        Population newPop = null;
+        Population newPop = new Population();
         Random r = new Random();
         ArrayList<Individual> tmpPop = currentPopulation.getPop();
         
         for(int i = 0; i < 500; i++){
             int r1=-1, r2=-1;
             while(r1==r2){
-                r1 = r.nextInt() % tmpPop.size();
-                r2 = r.nextInt() % tmpPop.size();
+                r1 = Math.abs(r.nextInt() % tmpPop.size());
+                r2 = Math.abs(r.nextInt() % tmpPop.size());
             }
                         
-            int split = r.nextInt() % tmpPop.get(0).getGenes().size();
+            int split = Math.abs(r.nextInt() % tmpPop.get(0).getGenes().size());
             
             ArrayList<AbstractGene> p1 = tmpPop.get(r1).getGenes();
             ArrayList<AbstractGene> p2 = tmpPop.get(r2).getGenes();
