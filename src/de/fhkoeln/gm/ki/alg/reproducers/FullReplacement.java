@@ -15,7 +15,7 @@ public class FullReplacement extends AbstractReproducer{
 
     @Override
     public Population reproduce(Population oldGeneration, Population tmpGeneration) {
-        Population newPop = null;
+        Population newPop = tmpGeneration;
         
         return newPop;
     }

@@ -5,7 +5,10 @@
  */
 package de.fhkoeln.gm.ki.alg.reproducers;
 
+import de.fhkoeln.gm.ki.alg.util.Individual;
 import de.fhkoeln.gm.ki.alg.util.Population;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -16,6 +19,14 @@ public class SteadyStateStrongestForWeakest extends AbstractReproducer{
     @Override
     public Population reproduce(Population oldGeneration, Population tmpGeneration) {
         Population newPop = null;
+        Random r = new Random();
+        ArrayList<Individual> old = oldGeneration.getPop();
+        ArrayList<Individual> tmp = tmpGeneration.getPop();
+        ArrayList<Individual> neu = null;
+        
+        
+        
+        newPop = new Population(neu);
         
         return newPop;
     }
