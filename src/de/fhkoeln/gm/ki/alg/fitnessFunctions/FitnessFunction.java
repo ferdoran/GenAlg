@@ -33,7 +33,7 @@ public class FitnessFunction extends AbstractFitness{
 
     @Override
     public boolean thresholdReached() {
-        Boolean threshold;
+        boolean threshold;
         threshold = highest>=1200;
                
         return threshold;

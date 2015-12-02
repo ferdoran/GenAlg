@@ -33,6 +33,7 @@ public abstract class AbstractGene implements ItemListener {
 	
 	
 	@SuppressWarnings("static-access")
+        @Override
 	public final void itemStateChanged(ItemEvent e) {
 		if(e.getStateChange() == e.SELECTED)
 			setChecked(true);

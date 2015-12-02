@@ -17,7 +17,7 @@ public class WeightedProbabilitySelector extends AbstractSelector{
 
     @Override
     public Population selectFromPopulation(Population currentGen) {
-        Population selectedGen = null;
+        Population selectedGen = new Population();
         float overallFitness = 0;
         ArrayList<Individual> tmpPop = currentGen.getPop();
         
