@@ -15,12 +15,16 @@ public class SteadyStateStrongestForWeakest extends AbstractReproducer{
 
     @Override
     public Population reproduce(Population oldGeneration, Population tmpGeneration) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Population newPop = null;
+        
+        return newPop;
     }
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String name;
+        name = "SteadyStateStrongestForWeakest";
+        return name;
     }
     
 }

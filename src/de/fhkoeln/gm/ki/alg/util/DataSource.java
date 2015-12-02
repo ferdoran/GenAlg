@@ -4,7 +4,7 @@ import java.rmi.activation.UnknownObjectException;
 import java.util.ArrayList;
 
 import de.fhkoeln.gm.ki.alg.GeneticAlgorithm;
-//import de.fhkoeln.gm.ki.alg.fitnessFunctions.BotFitness;
+import de.fhkoeln.gm.ki.alg.fitnessFunctions.BotFitness;
 import de.fhkoeln.gm.ki.alg.fitnessFunctions.FitnessFunction;
 import de.fhkoeln.gm.ki.alg.fitnessFunctions.AbstractFitness;
 import de.fhkoeln.gm.ki.alg.genes.AbstractGene;
@@ -140,10 +140,10 @@ public class DataSource {
 		genes.add(new TestGene3());
 		genes.add(new TestGene4());
 		fitnessFunctions.add(new FitnessFunction());
-		//fitnessFunctions.add(new BotFitness());
+		fitnessFunctions.add(new BotFitness());
 		mutators.add(new RandomResetter());
-		//reproducers.add(new FullReplacement());
-		//reproducers.add(new SteadyStateStrongestForWeakest());
+		reproducers.add(new FullReplacement());
+		reproducers.add(new SteadyStateStrongestForWeakest());
 		reproducers.add(new SteadyStateFullRandom());
 		recombiners.add(new OnePointCrossover());
 		selectors.add(new WeightedProbabilitySelector());

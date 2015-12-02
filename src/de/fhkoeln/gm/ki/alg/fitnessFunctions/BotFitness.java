@@ -15,17 +15,22 @@ public class BotFitness extends AbstractFitness{
 
     @Override
     public float evaluate(Individual genome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float fitness;
+        fitness = -1000000;
+        
+        return fitness;
     }
 
     @Override
     public boolean thresholdReached() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String name;
+        name = "Fitness LegoBot";
+        return name;
     }
     
 }
