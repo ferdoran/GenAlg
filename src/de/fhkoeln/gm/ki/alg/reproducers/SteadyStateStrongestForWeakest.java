@@ -6,8 +6,10 @@
 package de.fhkoeln.gm.ki.alg.reproducers;
 
 import de.fhkoeln.gm.ki.alg.util.Individual;
+import de.fhkoeln.gm.ki.alg.util.IndividualComparator;
 import de.fhkoeln.gm.ki.alg.util.Population;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -24,7 +26,15 @@ public class SteadyStateStrongestForWeakest extends AbstractReproducer{
         ArrayList<Individual> tmp = tmpGeneration.getPop();
         ArrayList<Individual> neu = null;
         
+        for(int i = 0; i < tmp.size(); i++){
+            old.add(tmp.get(i));
+        }
+ 
+        Collections.sort(old, new IndividualComparator());
         
+        for(int i = 0; i < tmp.size(); i++){
+            neu.add(old.get(i));
+        }
         
         newPop = new Population(neu);
         
