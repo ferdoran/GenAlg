@@ -26,7 +26,7 @@ public class WeightedProbabilitySelector extends AbstractSelector{
         }
         
         for(Individual ind: tmpPop){
-            if(ind.execute()>= (overallFitness/1000)){
+            if(ind.execute()>= (overallFitness/currentGen.getCurrentSize())){
                 selectedGen.add(ind);
             }
         }
