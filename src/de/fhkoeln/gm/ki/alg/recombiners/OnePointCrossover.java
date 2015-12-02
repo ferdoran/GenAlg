@@ -42,8 +42,8 @@ public class OnePointCrossover extends AbstractRecombiner{
             ArrayList<AbstractGene> p1 = tmpPop.get(r1).getGenes();
             ArrayList<AbstractGene> p2 = tmpPop.get(r2).getGenes();
             
-            ArrayList<AbstractGene> c1 = null;
-            ArrayList<AbstractGene> c2 = null;
+            ArrayList<AbstractGene> c1 = new ArrayList<>();
+            ArrayList<AbstractGene> c2 = new ArrayList<>();
             
             for(int j = 0; j < split; j++){
                 c1.add(p1.get(j));
