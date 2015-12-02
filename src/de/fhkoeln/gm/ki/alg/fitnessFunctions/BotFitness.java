@@ -16,7 +16,7 @@ public class BotFitness extends AbstractFitness{
     @Override
     public float evaluate(Individual genome) {
         float fitness;
-        fitness = -1000000;
+        fitness = 0;
         
         return fitness;
     }

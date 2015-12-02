@@ -19,7 +19,7 @@ public class FitnessFunction extends AbstractFitness{
     @Override
     public float evaluate(Individual genome) {
         float fitness;
-        fitness = -1000000;
+        fitness = 0;
         ArrayList<AbstractGene> genomeList;
         genomeList = genome.getGenes();
         for(AbstractGene gene : genomeList){
