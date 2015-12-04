@@ -5,6 +5,8 @@
  */
 package de.fhkoeln.gm.ki.alg.genes;
 
+import lejos.nxt.Motor;
+
 /**
  *
  * @author Mahdi
@@ -31,6 +33,7 @@ public class BotTestGeneC extends AbstractGene{
     public float execute() {
         float value;
         value = 50;
+        Motor.A.rotate((int) value);
         return value;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

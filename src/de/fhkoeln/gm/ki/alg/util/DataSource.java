@@ -55,7 +55,7 @@ public class DataSource {
 	public AbstractRecombiner currentRecombiner;
 	public GeneticAlgorithm currentGeneticAlgorithm;
 	
-	public static String BOTNAME = "B_BLAU_1516";
+	public static String BOTNAME = "A_BLAU";
 	private DataSource(){}
 	
 	public static DataSource getInstance(){
