@@ -47,7 +47,7 @@ public class BotMonitor {
 		Motor.A.setStallThreshold(5, 2);
 		Motor.B.setStallThreshold(5, 2);
 		Motor.C.setStallThreshold(5, 2);
-		USS = new UltrasonicSensor(SensorPort.S3);
+		USS = new UltrasonicSensor(SensorPort.S1);
 		USS.continuous();
 		USS.getDistance();
 		USS.getDistance();

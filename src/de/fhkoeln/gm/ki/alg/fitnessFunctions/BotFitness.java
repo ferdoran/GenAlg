@@ -7,7 +7,11 @@ package de.fhkoeln.gm.ki.alg.fitnessFunctions;
 
 import de.fhkoeln.gm.ki.alg.genes.AbstractGene;
 import de.fhkoeln.gm.ki.alg.util.Individual;
+import de.fhkoeln.gm.ki.remoteControl.BotMonitor;
 import java.util.ArrayList;
+import lejos.nxt.SensorPort;
+import lejos.nxt.UltrasonicSensor;
+import lejos.nxt.Motor;
 
 /**
  *
@@ -15,29 +19,39 @@ import java.util.ArrayList;
  */
 public class BotFitness extends AbstractFitness{
     private float highest = -10000000;
+    
+    private float lastDistance = 0;
 
     @Override
     public float evaluate(Individual genome) {
-        float fitness;
-        fitness = 0;
-        ArrayList<AbstractGene> genomeList;
-        genomeList = genome.getGenes();
-        for(AbstractGene gene : genomeList){
-            fitness += gene.execute();
+        
+        
+        ArrayList<AbstractGene> geneList = genome.getGenes();
+        UltrasonicSensor uss = new UltrasonicSensor(SensorPort.S1);
+        float currentDistance = uss.getDistance();
+        float fitness = 0;
+        
+        for(AbstractGene g : geneList) {
+            g.execute();
         }
-        if(fitness>highest){
-            highest = fitness;
-        }
+        
+        Motor.A.rotateTo(0);
+        Motor.A.rotateTo(0);
+        
+        
+        Motor.B.rotateTo(0);
+        Motor.B.rotateTo(0);
+        
+        fitness = uss.getDistance() - currentDistance;
         genome.fitness = fitness;
+        
         return fitness;
+        
     }
 
     @Override
     public boolean thresholdReached() {
-        boolean threshold;
-        threshold = highest>=1200;
-               
-        return threshold;
+       return false;
     }
 
     @Override

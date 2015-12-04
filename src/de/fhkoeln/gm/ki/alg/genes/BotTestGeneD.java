@@ -12,7 +12,8 @@ import lejos.nxt.Motor;
  * @author Mahdi
  */
 public class BotTestGeneD extends AbstractGene{
-
+    final int MOTORSPEED = 160;
+    
     @Override
     public char getName() {
         char name;
@@ -24,7 +25,7 @@ public class BotTestGeneD extends AbstractGene{
     @Override
     public String getDescription() {
         String desc;
-        desc = "";
+        desc = "-240";
         return desc;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -32,7 +33,8 @@ public class BotTestGeneD extends AbstractGene{
     @Override
     public float execute() {
         float value;
-        value = 123;
+        value = -240;
+        Motor.B.setSpeed(MOTORSPEED);
         Motor.B.rotate((int) value);
         return value;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
