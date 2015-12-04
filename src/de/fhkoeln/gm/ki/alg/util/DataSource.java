@@ -55,7 +55,7 @@ public class DataSource {
 	public AbstractRecombiner currentRecombiner;
 	public GeneticAlgorithm currentGeneticAlgorithm;
 	
-	public static String BOTNAME = "A_BLAU_1516";
+	public static String BOTNAME = "B_BLAU_1516";
 	private DataSource(){}
 	
 	public static DataSource getInstance(){
@@ -139,6 +139,10 @@ public class DataSource {
 		genes.add(new TestGene2());
 		genes.add(new TestGene3());
 		genes.add(new TestGene4());
+                genes.add(new BotTestGeneA());
+                genes.add(new BotTestGeneB());
+                genes.add(new BotTestGeneC());
+                genes.add(new BotTestGeneD());
 		fitnessFunctions.add(new FitnessFunction());
 		fitnessFunctions.add(new BotFitness());
 		mutators.add(new RandomResetter());

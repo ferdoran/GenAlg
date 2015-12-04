@@ -5,25 +5,39 @@
  */
 package de.fhkoeln.gm.ki.alg.fitnessFunctions;
 
+import de.fhkoeln.gm.ki.alg.genes.AbstractGene;
 import de.fhkoeln.gm.ki.alg.util.Individual;
+import java.util.ArrayList;
 
 /**
  *
  * @author Mahdi
  */
 public class BotFitness extends AbstractFitness{
+    private float highest = -10000000;
 
     @Override
     public float evaluate(Individual genome) {
         float fitness;
         fitness = 0;
-        
+        ArrayList<AbstractGene> genomeList;
+        genomeList = genome.getGenes();
+        for(AbstractGene gene : genomeList){
+            fitness += gene.execute();
+        }
+        if(fitness>highest){
+            highest = fitness;
+        }
+        genome.fitness = fitness;
         return fitness;
     }
 
     @Override
     public boolean thresholdReached() {
-        return false;
+        boolean threshold;
+        threshold = highest>=1200;
+               
+        return threshold;
     }
 
     @Override
