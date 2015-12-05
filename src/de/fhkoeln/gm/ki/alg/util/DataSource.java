@@ -139,10 +139,6 @@ public class DataSource {
 		genes.add(new TestGene2());
 		genes.add(new TestGene3());
 		genes.add(new TestGene4());
-                genes.add(new BotTestGeneA());
-                genes.add(new BotTestGeneB());
-                genes.add(new BotTestGeneC());
-                genes.add(new BotTestGeneD());
 		fitnessFunctions.add(new FitnessFunction());
 		fitnessFunctions.add(new BotFitness());
 		mutators.add(new RandomResetter());

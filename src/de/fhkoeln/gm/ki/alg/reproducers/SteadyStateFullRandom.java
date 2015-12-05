@@ -25,7 +25,7 @@ public class SteadyStateFullRandom extends AbstractReproducer{
         ArrayList<Individual> neu = new ArrayList();
         
         for(int i = 0; i < old.size(); i++){
-            if(r.nextInt()%2==0){
+            if(r.nextInt()%2==0 || i >= tmp.size()){
                 neu.add(old.get(i));
             }
             else{
