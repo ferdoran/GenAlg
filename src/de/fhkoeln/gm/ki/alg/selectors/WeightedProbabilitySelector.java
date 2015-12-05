@@ -8,6 +8,7 @@ package de.fhkoeln.gm.ki.alg.selectors;
 import de.fhkoeln.gm.ki.alg.util.Individual;
 import de.fhkoeln.gm.ki.alg.util.Population;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -19,15 +20,29 @@ public class WeightedProbabilitySelector extends AbstractSelector{
     public Population selectFromPopulation(Population currentGen) {
         Population selectedGen = new Population();
         float overallFitness = 0;
+        currentGen.sort();
         ArrayList<Individual> tmpPop = currentGen.getPop();
+        int count = 0;
+        float weight[] = new float[tmpPop.size()];
+        float weightSum = 0;
         
         for(Individual ind: tmpPop){
             overallFitness += ind.execute();
         }
         
-        for(Individual ind: tmpPop){
-            if(ind.execute()>= (overallFitness/currentGen.getCurrentSize())){
-                selectedGen.add(ind);
+        for(int i = 0; i < currentGen.getCurrentSize(); i++){
+            weight[i] = tmpPop.get(i).execute()/overallFitness;
+            weightSum += weight[i];
+        }
+        
+        while(count<currentGen.getCurrentSize()/10 || count % 2 == 1) {
+            float value = new Random().nextFloat() * weightSum;
+            for(int j = 0; j<weight.length; j++){
+                value -= weight[j];
+                if(value <= 0){
+                    selectedGen.add(tmpPop.get(j));
+                    count++;
+                }
             }
         }
         
