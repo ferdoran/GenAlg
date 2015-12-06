@@ -24,7 +24,7 @@ public class SteadyStateStrongestForWeakest extends AbstractReproducer{
         Random r = new Random();
         ArrayList<Individual> old = oldGeneration.getPop();
         ArrayList<Individual> tmp = tmpGeneration.getPop();
-        ArrayList<Individual> neu = null;
+        ArrayList<Individual> neu = new ArrayList();
         
         for(int i = 0; i < tmp.size(); i++){
             old.add(tmp.get(i));

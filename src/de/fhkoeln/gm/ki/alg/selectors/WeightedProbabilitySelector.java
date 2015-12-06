@@ -18,35 +18,47 @@ public class WeightedProbabilitySelector extends AbstractSelector{
 
     @Override
     public Population selectFromPopulation(Population currentGen) {
-        Population selectedGen = new Population();
-        float overallFitness = 0;
-        currentGen.sort();
+        ArrayList<Individual> indisList = new ArrayList();
+        Individual[] indis = new Individual[2];
+        for(int i=0;i < indis.length; i++) {
+            indis[i] = getWeightedSelection(currentGen);
+        }
+        
+        for(Individual i : indis) {
+            indisList.add(i);
+        }
+        
+        return new Population(indisList);
+        
+    }
+    
+    private Individual getWeightedSelection(Population currentGen) {
         ArrayList<Individual> tmpPop = currentGen.getPop();
-        int count = 0;
-        float weight[] = new float[tmpPop.size()];
-        float weightSum = 0;
+        float overallFitness = 0;
+        Individual[] pop = new Individual[tmpPop.size()];
+        pop = tmpPop.toArray(pop);
+        
+        double weight[] = new double[pop.length];
+        double weightSum = 0;
         
         for(Individual ind: tmpPop){
             overallFitness += ind.execute();
         }
         
-        for(int i = 0; i < tmpPop.size(); i++){
+        for(int i = 0; i < pop.length; i++){
             weight[i] = tmpPop.get(i).execute()/overallFitness;
             weightSum += weight[i];
         }
         
-        while(count<currentGen.getCurrentSize()/5 || count % 2 == 1) {
-            float value = Math.abs(new Random().nextFloat()) * weightSum;
-            for(int j = 0; j<weight.length; j++){
-                value -= weight[j];
-                if(value <= 0){
-                    selectedGen.add(tmpPop.get(j));
-                    count++;
-                }
+        double value = Math.abs(new Random().nextDouble()) * weightSum;
+        for(int j = 0; j< pop.length; j++){
+            value -= weight[j];
+            if(value <= 0){
+               return pop[j];
             }
         }
-        
-        return selectedGen;
+       
+        return pop[pop.length-1];
     }
 
     @Override
