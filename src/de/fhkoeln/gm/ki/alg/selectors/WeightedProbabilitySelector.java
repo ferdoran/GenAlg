@@ -35,8 +35,8 @@ public class WeightedProbabilitySelector extends AbstractSelector{
             weightSum += weight[i];
         }
         
-        while(count<currentGen.getCurrentSize()/10 || count % 2 == 1) {
-            float value = new Random().nextFloat() * weightSum;
+        while(count<currentGen.getCurrentSize()/5 || count % 2 == 1) {
+            float value = Math.abs(new Random().nextFloat()) * weightSum;
             for(int j = 0; j<weight.length; j++){
                 value -= weight[j];
                 if(value <= 0){
