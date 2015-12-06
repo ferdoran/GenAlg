@@ -30,7 +30,7 @@ public class WeightedProbabilitySelector extends AbstractSelector{
             overallFitness += ind.execute();
         }
         
-        for(int i = 0; i < currentGen.getCurrentSize(); i++){
+        for(int i = 0; i < tmpPop.size(); i++){
             weight[i] = tmpPop.get(i).execute()/overallFitness;
             weightSum += weight[i];
         }
