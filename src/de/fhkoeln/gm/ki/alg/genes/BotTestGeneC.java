@@ -25,7 +25,7 @@ public class BotTestGeneC extends AbstractGene{
     @Override
     public String getDescription() {
         String desc;
-        desc = "+30";
+        desc = "-15";
         return desc;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -33,7 +33,7 @@ public class BotTestGeneC extends AbstractGene{
     @Override
     public float execute() {
         float value;
-        value = 30;
+        value = -15;
         Motor.A.setSpeed(MOTORSPEED);
         Motor.A.rotate((int) value);
         return value;

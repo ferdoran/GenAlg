@@ -13,7 +13,7 @@ import de.fhkoeln.gm.ki.remoteControl.Connector;
  * @author Mahdi
  */
 public class BotTestGeneB extends AbstractGene{
-    final int MOTORSPEED = 160;
+    final int MOTORSPEED = 360;
 
     @Override
     public char getName() {

@@ -20,23 +20,33 @@ public class SteadyStateStrongestForWeakest extends AbstractReproducer{
 
     @Override
     public Population reproduce(Population oldGeneration, Population tmpGeneration) {
-        Population newPop = null;
+        Population newPop = oldGeneration;
         Random r = new Random();
+        
         ArrayList<Individual> old = oldGeneration.getPop();
-        ArrayList<Individual> tmp = tmpGeneration.getPop();
+        
         ArrayList<Individual> neu = new ArrayList();
         
-        for(int i = 0; i < tmp.size(); i++){
-            old.add(tmp.get(i));
-        }
- 
-        Collections.sort(old, new IndividualComparator());
+//        int size = old.size();
+//        
+//        for(int i = 0; i < tmp.size(); i++){
+//            old.add(tmp.get(i));
+//        }
+// 
+//        Collections.sort(old, new IndividualComparator());
+//        
+//        for(int i = 0; i < size; i++){
+//            neu.add(old.get(i));
+//        }
+//        
+//        newPop = new Population(neu);
         
-        for(int i = 0; i < tmp.size(); i++){
-            neu.add(old.get(i));
-        }
+        tmpGeneration.sort();
+        ArrayList<Individual> tmp = tmpGeneration.getPop();
         
-        newPop = new Population(neu);
+        while(!tmp.isEmpty()) {
+            newPop.replace(newPop.getWeakestIndividual(), tmp.remove(0));
+        }
         
         return newPop;
     }

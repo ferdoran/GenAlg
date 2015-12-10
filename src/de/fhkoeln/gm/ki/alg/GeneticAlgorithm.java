@@ -137,7 +137,7 @@ public class GeneticAlgorithm extends Thread {
 		for(int i=0;i<currentPopulation.getPop().size();i++){
 			boolean wasPaused=false;
 			try {
-				BotMonitor.getInstance().resetArm();
+				//BotMonitor.getInstance().resetArm();
 				if(!BotMonitor.getInstance().checkSensorRange()){
 					paused=true;
 					wasPaused=true;

@@ -36,10 +36,6 @@ public class BotFitness extends AbstractFitness{
         }
         
         Motor.A.rotateTo(0);
-        Motor.A.rotateTo(0);
-        
-        
-        Motor.B.rotateTo(0);
         Motor.B.rotateTo(0);
         
         fitness = uss.getDistance() - currentDistance;
