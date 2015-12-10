@@ -1,0 +1,17 @@
+WeightedProbabilitySelector
+OnePointCrossover
+RandomResetter
+SteadyStateStrongestForWeakest
+Fitness LegoBot
+2000
+Infinity
+ACAD:17.0
+ADAC:15.0
+CDAA:11.0
+CDCB:4.0
+BBDC:-8.0
+BCDC:-19.0
+ADBA:-27.0
+CBAA:-31.0
+CBCB:-31.0
+BCBB:-Infinity

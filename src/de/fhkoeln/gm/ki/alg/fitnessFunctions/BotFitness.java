@@ -9,6 +9,8 @@ import de.fhkoeln.gm.ki.alg.genes.AbstractGene;
 import de.fhkoeln.gm.ki.alg.util.Individual;
 import de.fhkoeln.gm.ki.remoteControl.BotMonitor;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lejos.nxt.SensorPort;
 import lejos.nxt.UltrasonicSensor;
 import lejos.nxt.Motor;
@@ -29,14 +31,20 @@ public class BotFitness extends AbstractFitness{
         ArrayList<AbstractGene> geneList = genome.getGenes();
         UltrasonicSensor uss = new UltrasonicSensor(SensorPort.S1);
         float currentDistance = uss.getDistance();
-        float fitness = 0;
+        float fitness;
         
         for(AbstractGene g : geneList) {
             g.execute();
         }
         
         Motor.A.rotateTo(0);
-        Motor.B.rotateTo(0);
+        Motor.A.rotateTo(0);
+        
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(BotFitness.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         fitness = uss.getDistance() - currentDistance;
         genome.fitness = fitness;

@@ -12,7 +12,7 @@ import lejos.nxt.Motor;
  * @author Mahdi
  */
 public class BotTestGeneC extends AbstractGene{
-    final int MOTORSPEED = 100;
+    final int MOTORSPEED = 50;
     
     @Override
     public char getName() {

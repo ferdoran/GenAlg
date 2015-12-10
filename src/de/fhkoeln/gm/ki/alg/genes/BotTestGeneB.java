@@ -13,7 +13,7 @@ import de.fhkoeln.gm.ki.remoteControl.Connector;
  * @author Mahdi
  */
 public class BotTestGeneB extends AbstractGene{
-    final int MOTORSPEED = 360;
+    final int MOTORSPEED = 180;
 
     @Override
     public char getName() {
@@ -26,7 +26,7 @@ public class BotTestGeneB extends AbstractGene{
     @Override
     public String getDescription() {
         String desc;
-        desc = "-120";
+        desc = "+360";
         return desc;
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -34,7 +34,7 @@ public class BotTestGeneB extends AbstractGene{
     @Override
     public float execute() {
         float value;
-        value = -120;
+        value = +360;
         Motor.B.setSpeed(MOTORSPEED);
         Motor.B.rotate((int) value);
         return value;
